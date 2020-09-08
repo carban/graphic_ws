@@ -56,7 +56,7 @@ void display2(void)
     drawline();
     glFlush(); // flushes the frame buffer to the screen
 }
-
+/*
 int main(int argc,char** argv)
 {
 	glutInit(&argc,argv);
@@ -66,3 +66,4 @@ int main(int argc,char** argv)
 	//myinit();
     glutMainLoop();//loops the current event
 }
+*/

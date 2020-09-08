@@ -2,10 +2,15 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="11" zoom_2="0">
+	<File name="second.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="20" />
+			<Cursor1 position="1983" topLine="47" />
 		</Cursor>
 	</File>
-	<EditorTabsLayout layout="7b59eb405f4e9e240043485100000002=*0;lines:main.cpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=855;besth=319;minw=855;minh=319;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=7b59eb405f4e9e240043485100000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1163" topLine="48" />
+		</Cursor>
+	</File>
+	<EditorTabsLayout layout="7b2e75e05f5786540043da3700000002=*0;lines:main.cpp,1;lines:second.cpp@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=855;besth=319;minw=855;minh=319;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=7b2e75e05f5786540043da3700000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
 </CodeBlocks_layout_file>

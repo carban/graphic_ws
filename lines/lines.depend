@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1599585014 source:/home/carban/Documents/GraphicComp/graphic_ws/lines/main.cpp
+1599595895 source:/home/carban/Documents/GraphicComp/graphic_ws/lines/main.cpp
 	<stdlib.h>
 	<iostream>
 	<GL/glut.h>

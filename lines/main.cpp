@@ -53,16 +53,16 @@ void DAA(GLfloat x_1, GLfloat y_1, GLfloat x_2, GLfloat y_2, double length){
 
     GLfloat xstep = dx / step;
     GLfloat ystep = dy / step;
-    /*
+
     cout << "x_1 = " << x_1 << "   " << " y_1 = " << y_1 << endl;
     cout << "x_2 = " << x_2 << "   " << " y_2 = " << y_2 << endl;
     cout << "dx = " << dx << "    " << " dy = " << dy << endl;
     cout << "step = " << step << endl;
     cout << "xstep = " << xstep << " " << " ystep = " << ystep << endl;
     cout << endl;
-    */
+
     for(double i = 0.0; i <= step; i += 1 / length){
-        //cout << x_1 << " " << y_1 << endl;
+        cout << x_1 << " " << y_1 << endl;
         glVertex2f(x_1, y_1);
         x_1 += xstep / length; //se quita el round para que quede en la escala de 0 a 1
         y_1 += ystep / length;
@@ -72,11 +72,12 @@ void DAA(GLfloat x_1, GLfloat y_1, GLfloat x_2, GLfloat y_2, double length){
 
 void display(void) {
     glClear(GL_COLOR_BUFFER_BIT);
-    glBegin(GL_POINTS);
+    glBegin(GL_POINTS); //GL_LINES
 
     double l = 100;
 
-    DAA(0.0, 0.0, 0.8, 0.8, l);
+    DAA(0.02, 0.03, 0.08, 0.15, l);
+    DAA(0.0, 0.0, 0.8, 0.8, 1);
     DAA(0.0, 0.0, 0.8, -0.8, 300);
 
     DAA(0.0, 0.0, 0.6, 0.8, l);
@@ -110,3 +111,4 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+

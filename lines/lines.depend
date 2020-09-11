@@ -1,12 +1,11 @@
 # depslib dependency file v1.0
-1599595895 source:/home/carban/Documents/GraphicComp/graphic_ws/lines/main.cpp
+1599776751 source:/home/carban/Documents/GraphicComp/graphic_ws/lines/main.cpp
 	<stdlib.h>
 	<iostream>
 	<GL/glut.h>
 	<math.h>
 
-1599572126 source:/home/carban/Documents/GraphicComp/graphic_ws/lines/second.cpp
+1599775317 source:/home/carban/Documents/GraphicComp/graphic_ws/lines/second.cpp
 	<GL/glut.h>
-	<stdlib.h>
 	<math.h>
 

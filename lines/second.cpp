@@ -1,69 +1,82 @@
+
 #include <GL/glut.h>
-#include<stdlib.h>
-#include<math.h>
+#include <math.h>
 
-void myinit(void)
-{
- glClearColor(1.0,1.0,1.0,0.0);
- glMatrixMode(GL_PROJECTION);
- gluOrtho2D (0.0,640.0,0.0,480.0);
- }
+#define PI 3.14159f
 
-float xstart=-100,ystart=-100,xend=200,yend=200,step,xinc,yinc,x,y;
+float ang, x, y;
+int up, down;
+float zoom = 2.5f;
 
-int Round(float a)			//any x i.e 1>=x>=0.5 is rounded to 1
-{
-  if(a-int(a)>=0.5)
-  return int(a)+1;
-  else
-  return int(a);
-     }
+void IniciarGLUT() {
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+  glutInitWindowSize(600,600);
+  glutInitWindowPosition(100,100);
+  glutCreateWindow("Practica III,3 de OpenGL");
+}
 
-void drawline()
-     {
+void PintarEscena() {
+   glMatrixMode(GL_MODELVIEW);
+   glClear(GL_COLOR_BUFFER_BIT);
+   glLoadIdentity();
 
-       float ydiff = yend-ystart;
-       float xdiff = xend-xstart;
-       if (abs(xdiff) > abs(ydiff))
-        step = abs(xdiff);                //assign abs(xdiff) to step if xdiff>ydiff
-        else
-        step = abs(ydiff);              //assign abs(ydiff) to step if xdiff<ydiff
+   glBegin(GL_LINES);
+           for (ang=0.0f; ang<PI*2.0f; ang = ang + 0.1f ) {
+              x = zoom*cosf(ang);
+              y = zoom*sinf(ang);
+              glVertex3f(0.0f,0.0f,0.0f);
+              glVertex3f(x,y,0.0f);
+           }
+   glEnd();
 
-        xinc = xdiff/step;            //assign xdiff/step to xinc
-        yinc = ydiff/step;           //assign ydiff/step to yinc
+   glutSwapBuffers();
+}
 
-        x = xstart;               //assign xstart to x
-        y = ystart;              //assign ystart to y
+void ReProyectar(int w, int h) {
+   GLfloat formato;
 
-for(int k=0;k<step;k++)
-      {
-       x = x+xinc;       // update x by xinc
-       y = y+yinc;
-	   glColor3f(0,0,1); // sets the current drawing (foreground) color to blue
-		 glPointSize(10); // sets the size of points to be drawn (in pixels)
-	   glBegin(GL_POINTS); // writes pixels on the frame buffer with the current drawing color
-       glVertex2i(Round(x),Round(y));//sets vertex
-          glEnd();
-	 }
-//glutPostRedisplay();
+   if(h == 0) h = 1;
 
+    glViewport(0, 0, w, h);
 
-  }
+   glMatrixMode(GL_PROJECTION);
+   glLoadIdentity();
 
-void display2(void)
-{
-    glClear(GL_COLOR_BUFFER_BIT); // clears the frame buffer and set values defined in glClearColor() function call
-    drawline();
-    glFlush(); // flushes the frame buffer to the screen
+   formato = (GLfloat)w / (GLfloat)h;
+
+    if (w <= h) glOrtho (-10.0f, 10.0f, -10.0f / formato, 10.0f / formato, 1.0f, -1.0f);
+    else glOrtho (-10.0f * formato, 10.0f * formato, -10.0f, 10.0f, 1.0f, -1.0f);
+}
+
+void Flechas(int key, int x, int y) {
+   if (key==GLUT_KEY_UP) up = 1;
+   if (key==GLUT_KEY_DOWN) down = 1;
+}
+
+void FlechasUp(int key, int x, int y) {
+   if (key==GLUT_KEY_UP) up = 0;
+   if (key==GLUT_KEY_DOWN) down = 0;
+}
+
+void Zoomizar(int value) {
+   if (up) zoom = zoom * 1.01f;
+   if (down) zoom = zoom / 1.01f;
+
+   glutTimerFunc(33,Zoomizar,1);
 }
 /*
-int main(int argc,char** argv)
-{
-	glutInit(&argc,argv);
-    glutInitWindowSize(700,700);//sets the width and height of the window in pixels
-    glutCreateWindow("DDA Line Drawing");//creates the window as specified by the user as above.
-    glutDisplayFunc(display2);//links the display event with the display event handler(display)
-	//myinit();
-    glutMainLoop();//loops the current event
+int main(int argc, char **argv) {
+   glutInit(&argc,argv); //Solo necesario en Linux
+  IniciarGLUT();
+
+//  glutReshapeFunc(ReProyectar);
+  glutDisplayFunc(PintarEscena);
+  glutSpecialFunc(Flechas);
+  glutSpecialUpFunc(FlechasUp);
+  glutTimerFunc(33,Zoomizar,1);
+  glutIdleFunc(PintarEscena);
+
+  glutMainLoop();
+    return 0;
 }
 */

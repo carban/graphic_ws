@@ -75,8 +75,11 @@ void display(void) {
     glBegin(GL_POINTS); //GL_LINES
 
     double l = 100;
+    //2,3 8,15
+
 
     DAA(0.02, 0.03, 0.08, 0.15, l);
+    /*
     DAA(0.0, 0.0, 0.8, 0.8, 1);
     DAA(0.0, 0.0, 0.8, -0.8, 300);
 
@@ -91,7 +94,7 @@ void display(void) {
 
     DAA(-0.8, 0.0, 0.8, 0.0, l);
     DAA(0.0, 0.8, 0.0, -0.8, l);
-
+*/
     //drawLine(-0.8, 0.8, 0.8, 0.8, l);
     //drawLine(0.8, 0.8, 0.0, 0.0, l);
     //drawLine(-0.8, 0.8, 0.0, 0.0, l);

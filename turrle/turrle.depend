@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1600790483 source:/home/carban/Documents/GraphicComp/graphic_ws/turrle/main.cpp
+	<GL/glut.h>
+	"Camara.h"
+	"primitivas.h"
+	"Vector_tools.h"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1600789804 /home/carban/Documents/GraphicComp/graphic_ws/turrle/include/Camara.h
+
+1600789714 /home/carban/Documents/GraphicComp/graphic_ws/turrle/include/primitivas.h
+
+1600789763 /home/carban/Documents/GraphicComp/graphic_ws/turrle/include/Vector_tools.h
+	<math.h>
+
+1600789804 source:/home/carban/Documents/GraphicComp/graphic_ws/turrle/src/Camara.cpp
+	"Camara.h"
+	<stdlib.h>
+	<GL/glut.h>
+	"Vector_tools.h"
+
+1600789715 source:/home/carban/Documents/GraphicComp/graphic_ws/turrle/src/primitivas.cpp
+	<GL/glut.h>
+	"Vector_tools.h"
+
+1600789762 source:/home/carban/Documents/GraphicComp/graphic_ws/turrle/src/Vector_tools.cpp
+	<stdio.h>
+	"Vector_tools.h"
+

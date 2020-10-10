@@ -35,10 +35,19 @@ void keyboard(unsigned char key, int x, int y) {
                 glEnable(GL_CULL_FACE);
             break;
         case '1':
-            glRotatef(1.0,1.,0.,0.);
+            glRotatef(1.0,1.0,0.0,0.0);
             break;
         case '2':
-            glRotatef(1.0,0.,1.,0.);
+            glRotatef(1.0,0.0,1.0,0.0);
+            break;
+        case '3':
+            glRotatef(-1.0,1.0,0.0,0.0);
+            break;
+        case '4':
+            glRotatef(-1.0,0.0,1.0,0.0);
+            break;
+        case 'w':
+            gluLookAt(1.0, 1.0, 3.0, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0);
             break;
         case 'q':
         case 27:

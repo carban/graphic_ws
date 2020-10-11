@@ -1,6 +1,18 @@
 #include <GL/glut.h>
 #include <cstdio>
 
+void freeDraw(){
+
+    glColor3f(0.0,1.0,0.0);
+    glBegin(GL_LINES);
+        glVertex3d(0.0,0.0,0.0);
+        glVertex3d(0.0,0.0,1.0);
+        glVertex3d(0.0,0.0,1.0);
+        glVertex3d(1.0,0.0,1.0);
+    glEnd();
+}
+
+
 void display(void) {
     glClearColor(1.0, 1.0, 1.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -8,6 +20,7 @@ void display(void) {
     glutWireTorus(0.25,0.75, 28, 28);
     glColor3f(0.0,0.0,1.0);
     glutWireCube(.60);
+    freeDraw();
     glutSwapBuffers();
 }
 

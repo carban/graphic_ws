@@ -23,6 +23,8 @@ void display(void) {
     glColor3f(0.0,0.0,1.0);
     glutWireCube(.60);
     freeDraw();
+    glColor3f(0.0,0.0,0.0);
+    glutWireSphere(0.2,20,20);
     glutSwapBuffers();
 }
 

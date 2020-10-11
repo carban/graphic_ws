@@ -9,6 +9,8 @@ void freeDraw(){
         glVertex3d(0.0,0.0,1.0);
         glVertex3d(0.0,0.0,1.0);
         glVertex3d(1.0,0.0,1.0);
+        glVertex3d(1.0,0.0,1.0);
+        glVertex3d(0.0,0.0,0.0);
     glEnd();
 }
 

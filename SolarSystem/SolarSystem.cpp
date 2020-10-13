@@ -3,7 +3,7 @@
 #include <math.h>
 
 void drawCircle(float r){
-    glColor3f(0.8,0.8,0.8);
+    glColor3f(0.6,0.6,0.6);
     glPushMatrix();
     glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
     glBegin(GL_LINE_LOOP);
@@ -105,8 +105,8 @@ void drawSolarSystem(){
     glRotatef(50.0, 0.0, 1.0, 0.0);
     glTranslatef(dist, 0.0, 0.0);
     glutWireSphere(0.030,30,30);
-    glColor3f(1.0,1.0,1.0);
-    glRotatef(90.0, 90.0, 00.0, 0.0);
+    glColor3f(0.9,0.7,0.0);
+    glRotatef(90.0, 90.0, 0.0, 0.0);
     glutWireTorus(0.004,0.06, 30, 30);
     glPopMatrix();
 

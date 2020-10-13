@@ -3,6 +3,7 @@
 #include <math.h>
 
 void drawCircle(float r){
+
     glColor3f(0.6,0.6,0.6);
     glPushMatrix();
     glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
@@ -17,84 +18,58 @@ void drawCircle(float r){
     glPopMatrix();
 }
 
+void drawPlanet(float dist, float r, float g, float b, float length, float pos){
+
+    glColor3f(r, g, b);
+    glPushMatrix();
+    glRotatef(pos, 0.0, 1.0, 0.0);
+    glTranslatef(dist, 0.0, 0.0);
+    glutWireSphere(length,30,30);
+    glPopMatrix();
+
+    drawCircle(dist); // Orbit
+}
+
 void drawSolarSystem(){
 
-    double dist = 0.35;
-    double increment = 0.08;
+    float dist = 0.35;
+    float increment = 0.08;
 
     // Sun -------------------------------------------
 
     glColor3f(1.0,0.8,0.0);
     glPushMatrix();
-    glutWireSphere(0.15,60,60);
+    glutWireSphere(0.17,60,60);
     glPopMatrix();
 
     glColor3f(1.0,0.0,0.0);
     glPushMatrix();
-    glutWireSphere(0.2,30,30);
+    glutWireSphere(0.2,20,20);
     glPopMatrix();
 
     // Mercury -------------------------------------------
 
-    glColor3f(0.8,0.41,0.02);
-    glPushMatrix();
-    glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(0.02,30,30);
-    glPopMatrix();
-
-    drawCircle(dist); // Orbit
+    drawPlanet(dist, 0.8, 0.41, 0.02, 0.02, 1.0);
 
     // Venus -------------------------------------------
 
     dist += increment;
-
-    glColor3f(0.6,0.8,0.02);
-    glPushMatrix();
-    glRotatef(60.0, 0.0, 1.0, 0.0);
-    glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(0.025,30,30);
-    glPopMatrix();
-
-    drawCircle(dist); // Orbit
+    drawPlanet(dist, 0.6, 0.8, 0.02, 0.025, 60.0);
 
     // Earth -------------------------------------------
 
     dist += increment;
-
-    glColor3f(0.0,0.0,1.0);
-    glPushMatrix();
-    glRotatef(180.0, 0.0, 1.0, 0.0);
-    glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(0.035,30,30);
-    glPopMatrix();
-
-    drawCircle(dist); // Orbit
+    drawPlanet(dist, 0.0, 0.0, 1.0, 0.035, 180.0);
 
     // Mars -------------------------------------------
 
     dist += increment;
-
-    glColor3f(1.0,0.0,0.0);
-    glPushMatrix();
-    glRotatef(330.0, 0.0, 1.0, 0.0);
-    glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(0.03,30,30);
-    glPopMatrix();
-
-    drawCircle(dist); // Orbit
+    drawPlanet(dist, 1.0, 0.0, 0.0, 0.03, 330.0);
 
     // Jupyter -------------------------------------------
 
     dist += increment + 0.06;
-
-    glColor3f(0.8,0.3,0.02);
-    glPushMatrix();
-    glRotatef(210.0, 0.0, 1.0, 0.0);
-    glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(0.06,30,30);
-    glPopMatrix();
-
-    drawCircle(dist); // Orbit
+    drawPlanet(dist, 0.8, 0.3, 0.02, 0.063, 210.0);
 
     // Saturn -------------------------------------------
 
@@ -104,7 +79,7 @@ void drawSolarSystem(){
     glPushMatrix();
     glRotatef(50.0, 0.0, 1.0, 0.0);
     glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(0.030,30,30);
+    glutWireSphere(0.035,30,30);
     glColor3f(0.9,0.7,0.0);
     glRotatef(90.0, 90.0, 0.0, 0.0);
     glutWireTorus(0.004,0.06, 30, 30);
@@ -115,28 +90,12 @@ void drawSolarSystem(){
     // Uranus -------------------------------------------
 
     dist += increment;
-
-    glColor3f(0.8,0.6,0.8);
-    glPushMatrix();
-    glRotatef(140.0, 0.0, 1.0, 0.0);
-    glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(0.028,30,30);
-    glPopMatrix();
-
-    drawCircle(dist); // Orbit
+    drawPlanet(dist, 0.8, 0.6, 0.8, 0.028, 140.0);
 
     // Neptune -------------------------------------------
 
     dist += increment;
-
-    glColor3f(0.4,0.3,1.0);
-    glPushMatrix();
-    glRotatef(300.0, 0.0, 1.0, 0.0);
-    glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(0.028,30,30);
-    glPopMatrix();
-
-    drawCircle(dist); // Orbit
+    drawPlanet(dist, 0.4, 0.3, 1.0, 0.03, 300.0);
 
 }
 

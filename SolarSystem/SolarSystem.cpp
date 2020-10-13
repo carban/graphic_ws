@@ -24,7 +24,7 @@ void drawPlanet(float dist, float r, float g, float b, float length, float pos){
     glPushMatrix();
     glRotatef(pos, 0.0, 1.0, 0.0);
     glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(length,40,40);
+    glutWireSphere(length, 60, 60);
     glPopMatrix();
 
     drawCircle(dist); // Orbit
@@ -59,12 +59,12 @@ void drawSolarSystem(){
     // Earth -------------------------------------------
 
     dist += increment;
-    drawPlanet(dist, 0.0, 0.0, 1.0, 0.035, 180.0);
+    drawPlanet(dist, 0.0, 0.0, 1.0, 0.038, 180.0);
 
     // Mars -------------------------------------------
 
     dist += increment;
-    drawPlanet(dist, 1.0, 0.0, 0.0, 0.03, 330.0);
+    drawPlanet(dist, 1.0, 0.0, 0.0, 0.033, 330.0);
 
     // Jupyter -------------------------------------------
 
@@ -107,7 +107,13 @@ void display(void) {
 }
 
 void reshape(int width, int height) {
-    glViewport(0, 0, width, height);
+
+	if (width <= height){
+		glViewport(0, 0, width, width);
+	}else {
+		glViewport(0, 0, height, height);
+    }
+
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(35.0, (GLfloat)height / (GLfloat)width, 1.0, 128.0);
@@ -118,31 +124,11 @@ void reshape(int width, int height) {
 
 void keyboard(unsigned char key, int x, int y) {
     switch (key) {
-        case 'h':
-            printf("help\n\n");
-            printf("c - Toggle culling\n");
-            printf("q/escape - Quit\n\n");
-        break;
-        case 'c':
-            if (glIsEnabled(GL_CULL_FACE))
-                glDisable(GL_CULL_FACE);
-            else
-                glEnable(GL_CULL_FACE);
-            break;
         case '1':
             glRotatef(1.0,1.0,0.0,0.0);
             break;
         case '2':
             glRotatef(1.0,0.0,1.0,0.0);
-            break;
-        case '3':
-            glRotatef(-1.0,1.0,0.0,0.0);
-            break;
-        case '4':
-            glRotatef(-1.0,0.0,1.0,0.0);
-            break;
-        case 'w':
-            gluLookAt(1.0, 1.0, 3.0, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0);
             break;
         case 'q':
         case 27:

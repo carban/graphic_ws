@@ -24,7 +24,7 @@ void drawPlanet(float dist, float r, float g, float b, float length, float pos){
     glPushMatrix();
     glRotatef(pos, 0.0, 1.0, 0.0);
     glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(length,30,30);
+    glutWireSphere(length,40,40);
     glPopMatrix();
 
     drawCircle(dist); // Orbit

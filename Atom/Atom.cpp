@@ -6,7 +6,7 @@ void drawCircle(float r){
 
     glColor3f(0.6,0.6,0.6);
     glPushMatrix();
-    glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
+    glRotatef(90.0, 1.0, 0.0, 0.0);
     glBegin(GL_LINE_LOOP);
     for(int i =0; i <= 360; i++){
         double angle = 2 * M_PI * i / 360;
@@ -24,15 +24,15 @@ void drawElectron(float dist, float length, float pos){
     glPushMatrix();
     glRotatef(pos, 0.0, 1.0, 0.0);
     glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(length, 60, 60);
+    glutSolidSphere(length, 30.0, 30.0 );
     glPopMatrix();
 
     drawCircle(dist); // Orbit
 }
 
-void drawProtonElectron(bool proton, float length, float posx, float posy, float posz){
+void drawProtonNeutron(bool proton, float length, float posx, float posy, float posz){
 
-    // Proton or Electron
+    // Proton or Neutron
     if (proton) {
         glColor3f(1.0, 0.0, 0.0);
     } else {
@@ -41,7 +41,7 @@ void drawProtonElectron(bool proton, float length, float posx, float posy, float
 
     glPushMatrix();
     glTranslatef(posx, posy, posz);
-    glutWireSphere(length, 60, 60);
+    glutSolidSphere(length, 30.0, 30.0 );
     glPopMatrix();
 }
 
@@ -52,19 +52,21 @@ void drawSolarSystem(){
 
     // Core -------------------------------------------
 
-    drawProtonElectron(true, 0.03, 0.04, 0.0, 0.04);
-    drawProtonElectron(false, 0.03, -0.04, 0.0, -0.04);
-    drawProtonElectron(true, 0.03, -0.04, 0.0, 0.04);
-    drawProtonElectron(false, 0.03, 0.04, 0.0, -0.04);
+    float pn = 0.025;
 
-    drawProtonElectron(false, 0.03, 0.02, 0.02, 0.02);
-    drawProtonElectron(true, 0.03, -0.02, 0.02, 0.02);
-    drawProtonElectron(false, 0.03, 0.02, -0.02, 0.02);
-    drawProtonElectron(true, 0.03, 0.02, 0.02, -0.02);
-    drawProtonElectron(false, 0.03, -0.02, -0.02, 0.02);
-    drawProtonElectron(true, 0.03, 0.02, -0.02, -0.02);
-    drawProtonElectron(false, 0.03, -0.02, 0.02, -0.02);
-    drawProtonElectron(true, 0.03, -0.02, -0.02, -0.02);
+    drawProtonNeutron(true, pn, 0.04, 0.0, 0.04);
+    drawProtonNeutron(false, pn, -0.04, 0.0, -0.04);
+    drawProtonNeutron(true, pn, -0.04, 0.0, 0.04);
+    drawProtonNeutron(false, pn, 0.04, 0.0, -0.04);
+
+    drawProtonNeutron(false, pn, 0.02, 0.02, 0.02);
+    drawProtonNeutron(true, pn, -0.02, 0.02, 0.02);
+    drawProtonNeutron(false, pn, 0.02, -0.02, 0.02);
+    drawProtonNeutron(true, pn, 0.02, 0.02, -0.02);
+    drawProtonNeutron(false, pn, -0.02, -0.02, 0.02);
+    drawProtonNeutron(true, pn, 0.02, -0.02, -0.02);
+    drawProtonNeutron(false, pn, -0.02, 0.02, -0.02);
+    drawProtonNeutron(true, pn, -0.02, -0.02, -0.02);
 
     float len = 0.02;
 

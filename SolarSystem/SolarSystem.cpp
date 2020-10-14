@@ -6,7 +6,7 @@ void drawCircle(float r){
 
     glColor3f(0.6,0.6,0.6);
     glPushMatrix();
-    glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
+    glRotatef(90.0, 1.0, 0.0, 0.0);
     glBegin(GL_LINE_LOOP);
     for(int i =0; i <= 360; i++){
         double angle = 2 * M_PI * i / 360;
@@ -24,7 +24,7 @@ void drawPlanet(float dist, float r, float g, float b, float length, float pos){
     glPushMatrix();
     glRotatef(pos, 0.0, 1.0, 0.0);
     glTranslatef(dist, 0.0, 0.0);
-    glutWireSphere(length, 60, 60);
+    glutSolidSphere(length, 30.0, 30.0 );
     glPopMatrix();
 
     drawCircle(dist); // Orbit
@@ -69,7 +69,7 @@ void drawSolarSystem(){
     // Jupyter -------------------------------------------
 
     dist += increment + 0.06;
-    drawPlanet(dist, 0.8, 0.3, 0.02, 0.063, 210.0);
+    drawPlanet(dist, 0.8, 0.3, 0.02, 0.064, 210.0);
 
     // Saturn -------------------------------------------
 
